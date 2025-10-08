@@ -9,8 +9,10 @@ import { useState } from 'react'
 const App = () => {
   const [wordCount, setWordCount] = useState(0);
 
-  const updateWordCount = (newCount) => {
-    setWordCount(newCount);
+
+  function handleTextChange(newText) {
+    const words = newText.trim().split(/\s+/).filter(Boolean);
+    setWordCount(words.length);
   }
 
   return (
@@ -18,8 +20,8 @@ const App = () => {
       <Navbar />
       <div className="small-container">
         <div className="main-app">
-          <ResultBox data={wordCount} />
-          <TextArea />
+          <ResultBox data={{wordCount}} />
+          <TextArea onTextChange={handleTextChange} />
           <BottomResultBox />
         </div>
       </div>

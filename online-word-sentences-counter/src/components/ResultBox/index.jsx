@@ -1,10 +1,12 @@
 import './index.scss'
 
-const ResultBox = () => {
+
+
+const ResultBox = ({data}) => {
   const resultBar = [
     {
       title: 'Words',
-      value: 0,
+      value: data.wordCount,
     },
     {
       title: 'Characters',
