@@ -7,12 +7,19 @@ import TextArea from './components/TextArea'
 import { useState } from 'react'
 
 const App = () => {
-  const [wordCount, setWordCount] = useState(0);
+  const [resultData, setResultData] = useState({
+    wordCount:0,
+    charCount:0
+  });
 
 
   function handleTextChange(newText) {
     const words = newText.trim().split(/\s+/).filter(Boolean);
-    setWordCount(words.length);
+    const chars = newText.length;
+    setResultData({
+      wordCount: words.length,
+      charCount: chars
+    });
   }
 
   return (
@@ -20,8 +27,8 @@ const App = () => {
       <Navbar />
       <div className="small-container">
         <div className="main-app">
-          <ResultBox data={{wordCount}} />
-          <TextArea onTextChange={handleTextChange} />
+          <ResultBox data={resultData} />
+          <TextArea onTextChange={handleTextChange}/>
           <BottomResultBox />
         </div>
       </div>

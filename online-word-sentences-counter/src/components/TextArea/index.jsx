@@ -7,7 +7,7 @@ const TextArea = ({onTextChange}) => {
     const text = e.target.value;
     onTextChange(text);
   }
-  return <textarea className="text-area" placeholder="Paste your text here..." onChange={handleChange}/>
+  return <textarea className="text-area" placeholder="Paste your text here..." onChange={handleChange} autoFocus/>
 }
 
 export default TextArea

@@ -10,7 +10,7 @@ const ResultBox = ({data}) => {
     },
     {
       title: 'Characters',
-      value: 0,
+      value: data.charCount,
     },
     {
       title: 'Sentences',
