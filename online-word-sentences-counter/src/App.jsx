@@ -9,16 +9,20 @@ import { useState } from 'react'
 const App = () => {
   const [resultData, setResultData] = useState({
     wordCount:0,
-    charCount:0
+    charCount:0,
+    sentenceCount:0
   });
 
 
   function handleTextChange(newText) {
     const words = newText.trim().split(/\s+/).filter(Boolean);
     const chars = newText.length;
+    const sentences = newText.trim().split(/[.?!]+/).map(s => s.trim()).filter(Boolean);
+    console.log(sentences)
     setResultData({
       wordCount: words.length,
-      charCount: chars
+      charCount: chars,
+      sentenceCount: sentences == null ? 0 : sentences.length
     });
   }
 

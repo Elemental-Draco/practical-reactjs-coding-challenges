@@ -14,7 +14,7 @@ const ResultBox = ({data}) => {
     },
     {
       title: 'Sentences',
-      value: 0,
+      value: data.sentenceCount,
     },
     {
       title: 'Paragraphs ',
