@@ -15,10 +15,11 @@ const App = () => {
 
 
   function handleTextChange(newText) {
-    const words = newText.trim().split(/\s+/).filter(Boolean);
-    const chars = newText.length;
+    const words = newText.match(/\b[a-zA-Z]+(?:['-][a-zA-Z]+)?\b/g) || [];
+
+    const chars = newText.split("").length;
     const sentences = newText.trim().split(/[.?!]+/).map(s => s.trim()).filter(Boolean);
-    console.log(sentences)
+    // console.log(sentences)
     setResultData({
       wordCount: words.length,
       charCount: chars,
